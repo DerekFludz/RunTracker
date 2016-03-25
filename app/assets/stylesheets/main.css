@@ -27,3 +27,19 @@ h1 {
   display: inline-block;
   padding: 15px;
 }
+
+.run-holder {
+  height: 100px;
+  width: 20%;
+  background-color: #a0a0a0;
+  margin: 0 auto;
+  opacity: 0.80;
+  padding-top: 25px;
+}
+
+.form-holder {
+  height: 100px;
+  width: 50%;
+  margin: 0 auto;
+  text-shadow: 1px 1px 5px purple;
+}

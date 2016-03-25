@@ -1,0 +1,8 @@
+<%= form_for [@user, @run] do |form| %>
+  <%= form.hidden_field :user_id, value: @user.id %>
+  Date(yyyy-mm-dd): <%= form.text_field :run_date %><br/>
+  Distance(miles): <%= form.text_field :distance %><br/>
+  Pace(minutes/mile): <%= form.text_field :pace %><br/>
+  Outdoors? <%= form.check_box :outdoors %><br/>
+  <%= form.submit %>
+<% end %>

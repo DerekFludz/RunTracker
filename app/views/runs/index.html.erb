@@ -1,10 +1,15 @@
-<h1>TESTING</h1>
-
+<h1>YOUR RUN STATS</h1>
+<%= link_to 'Log New Run', new_user_run_path(@user.id) %>
+<br/>
 <% @runs.each do |run| %>
 <div class="run-holder">
-  <strong>Date: <%= run.run_date %></strong>
-  <strong>Distance: <%= run.distance %></strong>
-  <strong>Pace: <%= run.pace %></strong>
-  <small>Outdoors: <%= run.outdoors %></small>
+  <strong>Date: <%= run.run_date %></strong><br/>
+  <strong>Distance: <%= run.distance %></strong><br/>
+  <strong>Pace: <%= run.pace %></strong><br/>
+  <% if run.outdoors %>
+    <strong>Outdoors</strong>
+  <% else %>
+    <strong>Indoors</strong>
+  <% end %>
 </div>
 <% end %>
