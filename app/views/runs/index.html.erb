@@ -1,0 +1,10 @@
+<h1>TESTING</h1>
+
+<% @runs.each do |run| %>
+<div class="run-holder">
+  <strong>Date: <%= run.run_date %></strong>
+  <strong>Distance: <%= run.distance %></strong>
+  <strong>Pace: <%= run.pace %></strong>
+  <small>Outdoors: <%= run.outdoors %></small>
+</div>
+<% end %>

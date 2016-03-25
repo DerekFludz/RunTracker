@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  text-align: center;
+  background: url('http://lifequestdiscoveries.com/wp-content/uploads/2010/07/forest-path1.jpg') no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1 {
+  text-shadow: 1px 1px 5px purple;
+}
+
+.navbar {
+  height: 50px;
+  background-color: #a0a0a0;
+  margin-bottom: 10px;
+  box-shadow: 10px 5px 5px black;
+}
+
+.navbar-link {
+  display: inline-block;
+  padding: 15px;
+}
