@@ -1,15 +1,42 @@
 <h1>YOUR RUN STATS</h1>
-<%= link_to 'Log New Run', new_user_run_path(@user.id) %>
-<br/>
-<% @runs.each do |run| %>
+<p class="new-run"><%= link_to 'Log New Run', new_user_run_path(@user.id), :class => 'navbar-link' %></p>
+<h2>Last Three Runs</h2>
+<% @runs.last(3).each do |run| %>
 <div class="run-holder">
-  <strong>Date: <%= run.run_date %></strong><br/>
-  <strong>Distance: <%= run.distance %></strong><br/>
-  <strong>Pace: <%= run.pace %></strong><br/>
-  <% if run.outdoors %>
-    <strong>Outdoors</strong>
-  <% else %>
-    <strong>Indoors</strong>
-  <% end %>
+  <div class="indv-run">
+    <h4>Date: <%= run.run_date %></h2>
+    <% if run.outdoors %>
+      <strong>Outdoors</strong><br/>
+    <% else %>
+      <strong>Indoors</strong><br/>
+    <% end %>
+    <strong>Distance: <%= run.distance %> miles</strong><br/>
+    <strong>Pace: <%= run.pace %> minutes per mile</strong>
+  </div>
 </div>
 <% end %>
+<h2>Other Stats</h2>
+<div class="run-holder">
+  <div class="stat-holder">
+    <h2>Outdoors</h2>
+    <strong>Number of Runs: <%= @out_runs %></strong><br/>
+    <strong>Longest Run: <%= @long_run_out %> miles</strong><br/>
+    <strong>Fastest Pace: <%= @fast_pace_out %> minutes per mile(<%= @fast_pace_out_mil.distance %> miles)</strong>
+  </div>
+</div>
+<div class="run-holder">
+  <div class="stat-holder">
+    <h2>Indoors</h2>
+    <strong>Number of Runs: <%= @ind_runs %></strong><br/>
+    <strong>Longest Run: <%= @long_run_ind %> miles</strong><br/>
+    <strong>Fastest Pace: <%= @fast_pace_ind %> minutes per mile(<%= @fast_pace_ind_mil.distance %> miles)</strong>
+  </div>
+</div>
+<div class="run-holder">
+  <div class="stat-holder">
+    <h2>Overall</h2>
+    <strong>Number of Runs: <%= @runs.count %></strong><br/>
+    <strong>Longest Run: <%= @long_run %> miles</strong><br/>
+    <strong>Fastest Pace: <%= @fast_pace %> minutes per mile(<%= @fast_pace_mil.distance %> miles)</strong>
+  </div>
+</div>
