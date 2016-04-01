@@ -11,7 +11,7 @@
       <strong>Indoors</strong><br/>
     <% end %>
     <strong>Distance: <%= run.distance %> miles</strong><br/>
-    <strong>Pace: <%= run.pace %> minutes per mile</strong>
+    <strong>Pace: <%= run.pace.to_s.gsub(".",":") %> minutes per mile</strong>
   </div>
 </div>
 <% end %>
@@ -35,7 +35,7 @@
 <div class="run-holder">
   <div class="stat-holder">
     <h2>Overall</h2>
-    <strong>Number of Runs: <%= @runs.count %></strong><br/>
+    <strong>Number of Runs: <%= @runs.count %></strong> | <strong>Total Miles: <%= @mile_count %></strong><br/>
     <strong>Longest Run: <%= @long_run %> miles</strong><br/>
     <strong>Fastest Pace: <%= @fast_pace %> minutes per mile(<%= @fast_pace_mil.distance %> miles)</strong>
   </div>
