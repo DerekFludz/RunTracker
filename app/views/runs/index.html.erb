@@ -11,7 +11,9 @@
       <strong>Indoors</strong><br/>
     <% end %>
     <strong>Distance: <%= run.distance %> miles</strong><br/>
-    <strong>Pace: <%= run.pace.to_s.gsub(".",":") %> minutes per mile</strong>
+    <strong>Pace: <%= run.pace.to_s.gsub(".",":") %> minutes per mile</strong><br/>
+    <%= link_to 'Edit Run', edit_user_run_path(@user.id, run.id) %> -----
+    <%= link_to 'Delete Run', user_run_path(@user.id, run.id), :method => 'delete' %>
   </div>
 </div>
 <% end %>

@@ -1,4 +1,5 @@
 class RunsController < ApplicationController
+  before_action :set_run, only: [:show, :edit, :update, :destroy]
 
   def index
     @user = User.find(params[:user_id])
@@ -24,6 +25,9 @@ class RunsController < ApplicationController
     @run = Run.new
   end
 
+  def show
+  end
+
   def create
     @user = User.find(params[:user_id])
     @run = Run.new(run_params)
@@ -35,7 +39,28 @@ class RunsController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:user_id])
+  end
+
+  def update
+    if @run.update(run_params)
+      redirect_to user_runs_path(current_user.id)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @run.destroy
+    redirect_to user_runs_path(current_user.id)
+  end
+
   private
+
+  def set_run
+    @run = Run.find(params[:id])
+  end
 
   def run_params
     params.require(:run).permit(:run_date, :distance, :pace, :outdoors, :user_id)
